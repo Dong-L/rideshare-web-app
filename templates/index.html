@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1 class="text-center" style="padding-top:50px; padding-bottom:25px;">Search for Rides</h1>
+    <!-- Search Ride list -->
+    <div class="text-center">
+      <form action="{% url 'index' %}" method="get">
+        <!-- Search Bar -->
+          <div class="container">
+              <div class="row">
+                  <div class="col-sm-8">
+                      <div class="md-form mt-0">
+                        <input name="search" class="form-control" type="text" placeholder="Search" aria-label="Search" style="margin-bottom:10px">
+                      </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <!-- Search Select -->
+                      <select class="browser-default custom-select" name="search_choice">
+                        <option class="dropdown-item" value="destination">Where do you want to go?</option>
+                        <option class="dropdown-item" value="origin">Where do you want to leave from?</option>
+                        <option calss="dropdown-item" value='departure_date'>When do you want to leave? (YYYY-MM-DD)</option>
+                      </select>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-sm-8">
+                    <input type="submit" class="btn btn-success" value="Search" style="width: 100%;">
+                  </div>
+                  <div class="col-sm-4">
+                    <input type="submit" class="btn btn-success" value="Clear Search" onclick="location.href='{% url 'index' %}'" style="width: 100%;">
+                  </div>
+              </div>
+          </div>
+      </form>
+
+    </div>
+
+    <div class="text-center" style="padding-top:50px;">
+      {% if ride_list %}
+        <ul class="list-group">
+          {% for Ride in ride_list %}
+              {% if Ride.has_not_passed %}
+              <button type="button" class="list-group-item list-group-item-action">
+                {{Ride.origin}} to {{Ride.destination}}, {{Ride.destination_state}} on {{Ride.departure_date}}
+              </button>
+              <div class="content" style="display: none; padding-top:20px; padding-bottom: 20px">
+                  <div class="card mb-3">
+                          <div class="row no-gutters">
+                           <div class="col-md-4">
+                              <img src="https://c.stocksy.com/a/8WB500/z9/1235916.jpg?1567070555" class="card-img" alt="...">
+                          </div>
+                          <div class="col-md-8">
+                              <div class="card-body">
+                                  <h5 class="card-title">
+                                    <!-- <a href="/accounts/{{ Ride.owner.username }}/" style="text-decoration: none;">{{Ride.owner.first_name}} {{Ride.owner.last_name}}'s</a> Ride -->
+                                  {{Ride.owner.first_name}} {{Ride.owner.last_name}}'s Ride
+                                  </h5>
+                                  {% if user.is_authenticated %}                 
+                                  <p class="card-title">Email: {{Ride.owner.email}}</p>
+                                  {% if user.profile.phone_num %}
+                                  <p class="card-title">Phone Number: {{user.profile.phone_num}}</p>
+                                  {% endif %}
+                                  {% endif %}
+                                  <p class="card-text">This ride is leaving <b>from {{Ride.origin}}, {{Ride.origin_state}}</b> and going <b>to {{Ride.destination}}, {{Ride.destination_state}}</b></p>
+                                  <p class="card-text">There are currently <b>{{Ride.seats_available}} seat(s) available</b> {% if Ride.owner.profile.car %}in {{Ride.owner.first_name}} {{Ride.owner.last_name}}'s <b>{{Ride.owner.profile.car}}</b> {% endif %}</p>
+                                  <p class="card-text">The driver is asking for <b>${{ Ride.asking_price }}</b> from each rider</p>
+                                  <p class="card-text">The following users are going: <br> {% for person in Ride.passenger_list.all %} <a href="/accounts/{{ person.username }}/" style="text-decoration: none;">{{person.first_name}} {{person.last_name}}</a> <br> {% endfor %}
+                                  </p>
+                                  {% if user.is_authenticated %}
+                                    {% if Ride.owner != user %}
+                                      {% if user in Ride.passenger_list.all %}
+                                      <a type="button" class="btn btn-primary" href="/accounts/{{ Ride.owner.username }}/">View Profile</a>
+                                      <a type="button" class="btn btn-danger" style='-webkit-appearance: none!important;' name="joinRide" href="/{{Ride.id}}/0/">Leave Ride</a>
+    <!--                                        <button type="button" class="btn btn-danger" name="leaveRide" onclick="location.href={% url 'join_ride' join=0 ride_id=Ride.id%}">Leave Ride</button>-->
+                                      {% else %}
+                                          {% if Ride.seats_available > 0 %}
+                                                    <a type="button" class="btn btn-primary" style='-webkit-appearance: none!important;' href="/accounts/{{ Ride.owner.username }}/">View Profile</a>
+                                                    <a type="button" class="btn btn-primary" style='-webkit-appearance: none!important;' name="joinRide" href="/{{Ride.id}}/1/">Join Ride</a>
+
+    <!--                                            <button type="button" class="btn btn-primary" name="joinRide"  onclick="location.href={% url 'join_ride' join=1 ride_id=Ride.id%}">Join Ride</button>-->
+                                          {% endif %}
+                                      
+                                      {% endif %}
+                                    {% endif %}
+                                    {% if Ride.owner == user %}
+<!--                                       <a type="button" class="btn btn-primary" href="/accounts/{{ Ride.owner.username }}/">View Profile</a> -->
+                                      <a type="button" class="btn btn-danger" style='-webkit-appearance: none!important;' name="deleteRide" href="/{{Ride.id}}">Delete</a>
+                                    {% endif %}
+                                  {% endif %}
+                      </div>
+                      </div>
+                  </div>
+              </div>
+            </div>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p>No rides are available.</p>
+      {% endif %}
+    </div>
+</div>
+
+  <script>
+  var coll = document.getElementsByClassName("list-group-item list-group-item-action");
+  var i;
+
+  for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var content = this.nextElementSibling;
+      if (content.style.display === "block") {
+        content.style.display = "none";
+      } else {
+        content.style.display = "block";
+      }
+    });
+  }
+  </script>
+{% endblock %}

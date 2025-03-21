@@ -1,0 +1,58 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" />
+    <header>
+      <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+        <a class="navbar-brand" href="/">Ride Share</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
+          <ul class="navbar-nav">
+              {% block content1 %}
+              {% if user.is_authenticated %}
+                <li class="nav-item">
+                  <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/create_ride/">Create Rides</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/accounts/myaccount">My Account</a>
+                </li>
+              {% endif %}
+              {% endblock %}
+
+              {% block content %}
+              {% if user.is_authenticated %}
+                  <li class="nav-item">
+                      <a class="nav-link" href="/accounts/login/">{{user.first_name}} (Logout)</a>
+                  </li>
+              {% else %}
+                  <li class="nav-item">
+                      <a class="nav-link" href="/accounts/login/">Login</a>
+                  </li>
+              {% endif %}
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+        <!-- templates/registration/login.html -->
+        <div class="jumbotron text-center ">
+    
+        {% if user.is_authenticated %}
+          <p>Logged in as</p>
+          <p>{{ user.first_name }} {{ user.last_name }}</p>
+          <p>{{ user.email }}</p>
+        <a class="btn btn-primary" href="{% url 'logout' %}">Logout</a>
+        {% else %}
+          <a class="btn btn-primary" href="{% url 'social:begin' 'google-oauth2' %}">
+            Login with Google
+          </a>
+        {% endif %}
+    
+{% endblock %}
+
+</div>
+
+
+
