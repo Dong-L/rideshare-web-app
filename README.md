@@ -1,5 +1,7 @@
 # Ride Share Application
+NOTE: Due to the inability to fork the original repository, teammate contributions were not preserved when uploading the project manually. Working on a solution to obtain teammate contribution history. Credit belongs to the teammates listed below in addition to myself.
 ### 103 Sharks: Dan Perkins, Will Lampert, Dong Lee, Eric Armstrong
+NOTE: Originally hosted for free on Heroku, the below link no longer works following the removal of Heroku's free tier. Working a solution to this as well. 
 ### You can view this application on our [Heroku Site](https://ride-share-103.herokuapp.com/).
 
 ## Basic Use
