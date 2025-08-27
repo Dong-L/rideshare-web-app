@@ -1,7 +1,12 @@
 # Ride Share Application
+Update: I am unable to fork or share the repository since it's private. I'm unable to change these settings as a member of the organization (CS 3240: Advanced Software Development at the University of Virginia) under which this repo belongs. As a workaround, I've shared a screenshot below of my contributions relative to those of my teammates. Credit belongs to Dan Perkins, Will Lampert, Dong Lee, and Eric Armstrong.
+
+<img width="1130" height="573" alt="image" src="https://github.com/user-attachments/assets/dee50464-0c5b-4b29-b74b-9cc84cf49963" />
+
 NOTE: Due to the inability to fork the original repository, teammate contributions were not preserved when uploading the project manually. Working on a solution to obtain teammate contribution history. Credit belongs to the teammates listed below in addition to myself.
+
 ### 103 Sharks: Dan Perkins, Will Lampert, Dong Lee, Eric Armstrong
-NOTE: Originally hosted for free on Heroku, the below link no longer works following the removal of Heroku's free tier. Working a solution to this as well. 
+NOTE: Originally hosted for free on Heroku, the below link no longer works following the removal of Heroku's free tier. Working on a solution to this.
 ### You can view this application on our [Heroku Site](https://ride-share-103.herokuapp.com/).
 
 ## Basic Use
@@ -22,4 +27,5 @@ If you determine that you no longer want to be on this ride, then you can click 
 
 ### Account Management
 In order to view or alter your account, you can visit the "My Account" tab, which allows you to view your account information. You can update the information belonging to your profile as well as view the rides you have joined and created.
+
 
