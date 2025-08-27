@@ -1,9 +1,7 @@
 # Ride Share Application
-Update: I am unable to fork or share the repository since it's private. I'm unable to change these settings as a member of the organization (CS 3240: Advanced Software Development at the University of Virginia) under which this repo belongs. As a workaround, I've shared a screenshot below of my contributions relative to those of my teammates. Credit belongs to Dan Perkins, Will Lampert, Dong Lee, and Eric Armstrong.
+Note: Because I do not own this repository, it is set to private, and forking is not permitted, teammate contribution history could not be preserved when uploading the repo manually. I'm unable to change these settings as a member of the organization under which this repo belongs, CS 3240: Advanced Software Development at the University of Virginia. As a workaround, I've shared a screenshot below of my contributions relative to those of my teammates. Credit for this project belongs to Dan Perkins, Will Lampert, Eric Armstrong, and me Duncan (Dong) Lee.
 
 <img width="1130" height="573" alt="image" src="https://github.com/user-attachments/assets/dee50464-0c5b-4b29-b74b-9cc84cf49963" />
-
-NOTE: Due to the inability to fork the original repository, teammate contributions were not preserved when uploading the project manually. Working on a solution to obtain teammate contribution history. Credit belongs to the teammates listed below in addition to myself.
 
 ### 103 Sharks: Dan Perkins, Will Lampert, Dong Lee, Eric Armstrong
 NOTE: Originally hosted for free on Heroku, the below link no longer works following the removal of Heroku's free tier. Working on a solution to this.
