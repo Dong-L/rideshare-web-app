@@ -1,11 +1,12 @@
 # Ride Share Application
-Note: Because I do not own this repository, it is set to private, and forking is not permitted, teammate contribution history could not be preserved when uploading the repo manually. I'm unable to change these settings as a member of the organization under which this repo belongs, CS 3240: Advanced Software Development at the University of Virginia. As a workaround, I've shared a screenshot below of my contributions relative to those of my teammates. Credit for this project belongs to Dan Perkins, Will Lampert, Eric Armstrong, and me Duncan (Dong) Lee.
 
-<img width="1130" height="573" alt="image" src="https://github.com/user-attachments/assets/dee50464-0c5b-4b29-b74b-9cc84cf49963" />
-
-### 103 Sharks: Dan Perkins, Will Lampert, Dong Lee, Eric Armstrong
+### 103 Sharks: Dan Perkins, Will Lampert, Duncan (Dong) Lee, Eric Armstrong
 NOTE: Originally hosted for free on Heroku, the below link no longer works following the removal of Heroku's free tier. Working on a solution to this.
 ### You can view this application on our [Heroku Site](https://ride-share-103.herokuapp.com/).
+
+NOTE: Because the original repository for this project is set to private, sharing a link leads to a 404-Not Found error and forking onto my profile is not possible. Additionally, teammate contribution history could not be preserved when reuploading the repo manually. I'm unable to change these settings on the original repo as I am only a member of the organization under which it is saved, CS 3240: Advanced Software Development. As a workaround, I've shared a screenshot below of my contributions relative to those of my teammates from the original repo. Credit for this project belongs to Dan Perkins, Will Lampert, Eric Armstrong, and me Duncan (Dong) Lee.
+
+<img width="1130" height="573" alt="image" src="https://github.com/user-attachments/assets/dee50464-0c5b-4b29-b74b-9cc84cf49963" />
 
 ## Basic Use
 ### Login
@@ -25,5 +26,6 @@ If you determine that you no longer want to be on this ride, then you can click 
 
 ### Account Management
 In order to view or alter your account, you can visit the "My Account" tab, which allows you to view your account information. You can update the information belonging to your profile as well as view the rides you have joined and created.
+
 
 
